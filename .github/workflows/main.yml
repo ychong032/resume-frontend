@@ -1,0 +1,33 @@
+name: "Sync with S3 Bucket"
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - src/**
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+    environment: production
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: .
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          aws-region: ap-southeast-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Sync with S3 Bucket
+        run: aws s3 sync ./src s3://yow-lim-cloud-resume-bucket --delete
