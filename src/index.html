@@ -7,10 +7,11 @@
         <link rel="stylesheet" href="./output.css" />
         <script type="module" src="./index.js" defer></script>
     </head>
-    <body class="h-screen m-0 p-0 bg-gray-50">
-        <header>
+    <body class="m-0 p-0 bg-gray-50">
+        <header
+            class="hidden md:block sticky top-0 bg-gray-50 border-b-2 border-b-gray-100">
             <nav
-                class="hidden md:flex xl:text-lg/6 font-semibold items-center justify-end py-5 md:px-12 lg:px-20 xl:px-40 md:gap-8 xl:gap-12">
+                class="flex xl:text-lg/6 font-semibold items-center justify-end py-5 md:px-12 lg:px-20 xl:px-40 md:gap-8 xl:gap-12">
                 <a href="#about" class="hover:text-sky-400">About</a>
                 <a href="#experience" class="hover:text-sky-400">Experience</a>
                 <a href="#education" class="hover:text-sky-400">Education</a>
@@ -22,7 +23,7 @@
             <div
                 class="pt-12 md:py-12 flex flex-col-reverse md:flex-row md:justify-between gap-12 md:gap-16">
                 <div class="flex flex-col gap-3 justify-center">
-                    <p class="text-xl opacity-60">
+                    <p class="text-xl text-gray-500">
                         Greetings<span class="text-2xl">👋</span>, my name is
                     </p>
                     <h1
@@ -32,7 +33,7 @@
                     <p class="text-2xl font-semibold">
                         Software Engineer <span class="text-2xl">🧑‍💻</span>
                     </p>
-                    <p class="text-lg mb-4 opacity-60">
+                    <p class="text-lg mb-4 text-gray-500">
                         "Hey look, buddy. I'm an engineer. That means I solve
                         problems."
                         <br />
@@ -85,10 +86,10 @@
                                 xmlns="http://www.w3.org/2000/svg"
                                 x="0px"
                                 y="0px"
-                                width="24"
-                                height="24"
+                                width="32"
+                                height="32"
                                 viewBox="0 0 24 24"
-                                class="size-8 scale-125 transition ease-in-out delay-150 hover:fill-sky-400 hover:scale-150 hover:-translate-y-1">
+                                class="size-8 transition ease-in-out delay-150 hover:fill-sky-400 hover:scale-110 hover:-translate-y-1">
                                 <path
                                     d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"></path>
                             </svg>
@@ -102,15 +103,17 @@
                     "></div>
             </div>
             <div class="flex flex-col gap-4">
-                <h2 class="text-2xl lg:text-3xl font-semibold mb-4" id="about">
+                <h2
+                    class="text-2xl lg:text-3xl font-semibold mb-4 scroll-mt-20"
+                    id="about">
                     About
                 </h2>
-                <p class="text-lg opacity-70">
+                <p class="text-lg text-gray-600">
                     I'm a software engineer, currently working on backend
                     development in Go and working regularly with AWS. I also
                     have previous experience with frontend development in React.
                 </p>
-                <p class="text-lg opacity-70">
+                <p class="text-lg text-gray-600">
                     I believe in lifelong learning, and I enjoy working with new
                     technologies and learning new skills to keep my knowledge
                     up-to-date. As a new software engineer, I practically learn
@@ -121,7 +124,7 @@
                     still have a lot to learn and I look forward to using the
                     skills I pick up to do meaningful and impactful work.
                 </p>
-                <p class="text-lg opacity-70">
+                <p class="text-lg text-gray-600">
                     In my personal time, I like to make cool stuff with the
                     skills I've picked up. Other times, you'll usually find me
                     exercising, spending time with my fianc&eacute;e, or
@@ -136,13 +139,13 @@
             </div>
             <div>
                 <h2
-                    class="text-2xl lg:text-3xl font-semibold mb-8 md:mb-8"
+                    class="text-2xl lg:text-3xl font-semibold mb-8 md:mb-8 scroll-mt-20"
                     id="experience">
                     Experience
                 </h2>
                 <div class="lg:grid lg:grid-cols-4 lg:gap-x-8 lg:gap-y-8">
                     <div
-                        class="lg:col-span-1 text-left text-lg font-semibold opacity-50">
+                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500">
                         May 2024 - Present
                     </div>
                     <div class="mb-8 lg:mb-0 lg:col-span-3">
@@ -170,7 +173,7 @@
                             </a>
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg opacity-70">
+                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
                             <li>
                                 Maintaining and developing the Identity
                                 Authorization Service, an OAuth 2.0 service,
@@ -189,7 +192,7 @@
                         </ul>
                     </div>
                     <div
-                        class="lg:col-span-1 text-left text-lg font-semibold opacity-50">
+                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500">
                         Sep 2023 - May 2024
                     </div>
                     <div class="mb-8 lg:mb-0 lg:col-span-3">
@@ -217,7 +220,7 @@
                             </a>
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg opacity-70">
+                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
                             <li>
                                 Developed and maintained the online trading app
                                 using React and Redux.
@@ -229,7 +232,7 @@
                         </ul>
                     </div>
                     <div
-                        class="lg:col-span-1 text-left text-lg font-semibold opacity-50">
+                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500">
                         Jan 2023 - May 2023
                     </div>
                     <div class="mb-8 lg:mb-0 lg:col-span-3">
@@ -257,7 +260,7 @@
                             </a>
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg opacity-70">
+                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
                             <li>
                                 Automated testing and deployment of health
                                 checks to the internal health dashboard service
@@ -279,7 +282,7 @@
                         </ul>
                     </div>
                     <div
-                        class="lg:col-span-1 text-left text-lg font-semibold opacity-50">
+                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500">
                         Dec 2021 - Feb 2022
                     </div>
                     <div class="lg:mb-0 lg:col-span-3">
@@ -308,7 +311,7 @@
                             </a>
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg opacity-70">
+                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
                             <li>
                                 Developed a proof of concept using C# and Python
                                 to demonstrate the viability of Elastic
@@ -326,13 +329,13 @@
             </div>
             <div>
                 <h2
-                    class="text-2xl lg:text-3xl font-semibold mb-8"
+                    class="text-2xl lg:text-3xl font-semibold mb-8 scroll-mt-20"
                     id="education">
                     Education
                 </h2>
                 <div class="lg:grid lg:grid-cols-4 lg:gap-y-8">
                     <div
-                        class="lg:col-span-1 text-left text-lg font-semibold opacity-50">
+                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500">
                         Aug 2019 - May 2023
                     </div>
                     <div class="lg:mb-0 lg:col-span-3">
@@ -362,7 +365,7 @@
                             of Engineering (Computer Science)
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg opacity-70">
+                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
                             <li>
                                 GPA: 4.42/5.00 (Business), 4.61/5.00 (Computer
                                 Science)
@@ -374,13 +377,15 @@
                 </div>
             </div>
             <div class="container">
-                <h2 class="text-2xl lg:text-3xl font-semibold mb-8" id="skills">
+                <h2
+                    class="text-2xl lg:text-3xl font-semibold mb-8 scroll-mt-20"
+                    id="skills">
                     Skills
                 </h2>
                 <div
-                    class="flex gap-4 select-none overflow-x-scroll lg:overflow-x-auto pb-6 md:pb-0 snap-x snap-mandatory md:snap-none">
+                    class="flex gap-4 select-none overflow-x-scroll lg:overflow-x-auto pb-6 snap-x snap-mandatory md:snap-none">
                     <div
-                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white drop-shadow snap-center">
+                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white shadow-sm snap-center">
                         <h3
                             class="text-lg md:text-xl font-semibold mb-0 md:mb-4 text-center">
                             Programming
@@ -447,7 +452,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white drop-shadow snap-center">
+                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white shadow-sm snap-center">
                         <h3
                             class="text-lg md:text-xl font-semibold mb-0 md:mb-4 text-center">
                             Tools
@@ -485,7 +490,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white drop-shadow snap-center">
+                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white shadow-sm snap-center">
                         <h3
                             class="text-lg md:text-xl font-semibold mb-0 md:mb-4 text-center">
                             Cloud/Infra
@@ -520,7 +525,7 @@
         <div
             class="px-7 md:px-14 lg:px-28 xl:px-52 py-4 mt-12 flex flex-col gap-8">
             <hr />
-            <div class="text-sm sm:text-base text-center opacity-60">
+            <div class="text-sm sm:text-base text-center text-gray-500">
                 Made with 💖 by Yow Lim. Built with
                 <a
                     href="https://tailwindcss.com/"
