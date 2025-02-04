@@ -7,16 +7,69 @@
         <link rel="stylesheet" href="./output.css" />
         <script type="module" src="./index.js" defer></script>
     </head>
-    <body class="m-0 p-0 bg-gray-50">
+    <body class="m-0 p-0 bg-gray-50 relative">
+        <div
+            id="modal"
+            class="absolute hidden w-full h-full bg-gray-400 opacity-80"></div>
         <header
-            class="hidden md:block sticky top-0 bg-gray-50 border-b-2 border-b-gray-100">
+            class="sticky top-0 bg-gray-50 border-b-2 border-b-gray-100 z-10">
             <nav
-                class="flex xl:text-lg/6 font-semibold items-center justify-end py-5 md:px-12 lg:px-20 xl:px-40 md:gap-8 xl:gap-12">
+                class="hidden md:flex xl:text-lg/6 font-semibold items-center justify-end py-5 md:px-12 lg:px-20 xl:px-40 md:gap-8 xl:gap-12">
                 <a href="#about" class="hover:text-sky-400">About</a>
                 <a href="#experience" class="hover:text-sky-400">Experience</a>
                 <a href="#education" class="hover:text-sky-400">Education</a>
                 <a href="#skills" class="hover:text-sky-400">Skills</a>
             </nav>
+            <nav class="flex md:hidden justify-end py-4 px-4">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    class="size-8 opacity-80"
+                    id="menu-button">
+                    <path
+                        d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"></path>
+                </svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    class="size-8 opacity-60 hidden"
+                    id="close-button">
+                    <path
+                        d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"></path>
+                </svg>
+            </nav>
+            <div
+                id="menu"
+                class="hidden absolute px-4 text-lg border-b-2 border-b-gray-200 text-gray-600 bg-gray-50 w-full">
+                <a
+                    href="#about"
+                    class="grid-cols-1 py-2 text-center border-b-2 active:bg-gray-100 active:text-gray-900">
+                    About
+                </a>
+                <a
+                    href="#experience"
+                    class="grid-cols-1 py-2 text-center border-b-2 active:bg-gray-100 active:text-gray-900">
+                    Experience
+                </a>
+                <a
+                    href="#education"
+                    class="grid-cols-1 py-2 text-center border-b-2 active:bg-gray-100 active:text-gray-900">
+                    Education
+                </a>
+                <a
+                    href="#skills"
+                    class="grid-cols-1 py-2 text-center active:bg-gray-100 active:text-gray-900">
+                    Skills
+                </a>
+            </div>
         </header>
         <div
             class="flex flex-col px-7 gap-16 lg:gap-12 md:px-14 lg:px-28 xl:px-52 mb-24">
