@@ -6,21 +6,61 @@
         <title>Chong Yow Lim</title>
         <link rel="stylesheet" href="./output.css" />
         <script type="module" src="./index.js" defer></script>
+        <script>
+            document.documentElement.classList.toggle(
+                "dark",
+                localStorage.theme === "dark" ||
+                    (!("theme" in localStorage) &&
+                        window.matchMedia("(prefers-color-scheme: dark)")
+                            .matches)
+            );
+        </script>
     </head>
-    <body class="m-0 p-0 bg-gray-50 relative">
+    <body
+        class="m-0 p-0 bg-gray-50 dark:bg-gray-950 relative dark:text-gray-200">
         <div
             id="modal"
-            class="absolute hidden w-full h-full bg-gray-400 opacity-80"></div>
+            class="absolute hidden w-full h-full bg-gray-400 dark:bg-gray-600 opacity-80"></div>
         <header
-            class="sticky top-0 bg-gray-50 border-b-2 border-b-gray-100 z-10">
+            class="sticky top-0 bg-gray-50 dark:bg-gray-950 border-b-2 border-b-gray-100 dark:border-b-gray-900 z-10">
             <nav
-                class="hidden md:flex xl:text-lg/6 font-semibold items-center justify-end py-5 md:px-12 lg:px-20 xl:px-40 md:gap-8 xl:gap-12">
-                <a href="#about" class="hover:text-sky-400">About</a>
-                <a href="#experience" class="hover:text-sky-400">Experience</a>
-                <a href="#education" class="hover:text-sky-400">Education</a>
-                <a href="#skills" class="hover:text-sky-400">Skills</a>
+                class="hidden md:flex xl:text-lg/6 font-semibold justify-between py-5 md:px-12 lg:px-20 xl:px-40">
+                <button
+                    type="button"
+                    id="dark-mode-button-md"
+                    class="rounded-md bg-green-500 active:bg-green-700">
+                    Toggle dark mode
+                </button>
+                <div class="flex md:gap-8 xl:gap-12">
+                    <a
+                        href="#about"
+                        class="hover:text-green-500 dark:hover:text-green-400"
+                        >About</a
+                    >
+                    <a
+                        href="#experience"
+                        class="hover:text-green-500 dark:hover:text-green-400"
+                        >Experience</a
+                    >
+                    <a
+                        href="#education"
+                        class="hover:text-green-500 dark:hover:text-green-400"
+                        >Education</a
+                    >
+                    <a
+                        href="#skills"
+                        class="hover:text-green-500 dark:hover:text-green-400"
+                        >Skills</a
+                    >
+                </div>
             </nav>
-            <nav class="flex md:hidden justify-end py-4 px-4">
+            <nav class="flex md:hidden justify-between py-4 px-4">
+                <button
+                    type="button"
+                    id="dark-mode-button"
+                    class="rounded-md bg-green-500 active:bg-green-700">
+                    Toggle dark mode
+                </button>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -28,7 +68,7 @@
                     width="30"
                     height="30"
                     viewBox="0 0 30 30"
-                    class="size-8 opacity-80"
+                    class="size-8 opacity-80 dark:fill-gray-200"
                     id="menu-button">
                     <path
                         d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"></path>
@@ -40,7 +80,7 @@
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
-                    class="size-8 opacity-60 hidden"
+                    class="size-8 opacity-60 hidden dark:fill-gray-200"
                     id="close-button">
                     <path
                         d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"></path>
@@ -48,25 +88,25 @@
             </nav>
             <div
                 id="menu"
-                class="hidden absolute px-4 text-lg border-b-2 border-b-gray-200 text-gray-600 bg-gray-50 w-full">
+                class="hidden absolute px-4 text-lg border-b-2 border-b-gray-200 dark:border-b-gray-950 text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-950 w-full">
                 <a
                     href="#about"
-                    class="grid-cols-1 py-2 text-center border-b-2 active:bg-gray-100 active:text-gray-900">
+                    class="grid-cols-1 py-2 text-center rounded-md border-b-2 dark:border-b-gray-900 active:bg-gray-100 dark:active:bg-gray-900 active:text-gray-900 dark:active:text-gray-200">
                     About
                 </a>
                 <a
                     href="#experience"
-                    class="grid-cols-1 py-2 text-center border-b-2 active:bg-gray-100 active:text-gray-900">
+                    class="grid-cols-1 py-2 text-center rounded-md border-b-2 dark:border-b-gray-900 active:bg-gray-100 dark:active:bg-gray-900 active:text-gray-900 dark:active:text-gray-200">
                     Experience
                 </a>
                 <a
                     href="#education"
-                    class="grid-cols-1 py-2 text-center border-b-2 active:bg-gray-100 active:text-gray-900">
+                    class="grid-cols-1 py-2 text-center rounded-md border-b-2 dark:border-b-gray-900 active:bg-gray-100 dark:active:bg-gray-900 active:text-gray-900 dark:active:text-gray-200">
                     Education
                 </a>
                 <a
                     href="#skills"
-                    class="grid-cols-1 py-2 text-center active:bg-gray-100 active:text-gray-900">
+                    class="grid-cols-1 py-2 text-center rounded-md active:bg-gray-100 dark:active:bg-gray-900 active:text-gray-900 dark:active:text-gray-200">
                     Skills
                 </a>
             </div>
@@ -100,7 +140,7 @@
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 50 50"
-                                class="size-8 transition ease-in-out delay-150 hover:fill-sky-400 hover:scale-110 hover:-translate-y-1">
+                                class="size-8 transition-transform ease-in-out delay-150 dark:fill-gray-200 hover:fill-green-500 dark:hover:fill-green-400 hover:scale-110 hover:-translate-y-1">
                                 <path
                                     d="M12 23.403V23.39 10.389L11.88 10.3h-.01L9.14 8.28C7.47 7.04 5.09 7.1 3.61 8.56 2.62 9.54 2 10.9 2 12.41v3.602L12 23.403zM38 23.39v.013l10-7.391V12.41c0-1.49-.6-2.85-1.58-3.83-1.46-1.457-3.765-1.628-5.424-.403L38.12 10.3 38 10.389V23.39zM14 24.868l10.406 7.692c.353.261.836.261 1.189 0L36 24.868V11.867L25 20l-11-8.133V24.868zM38 25.889V41c0 .552.448 1 1 1h6.5c1.381 0 2.5-1.119 2.5-2.5V18.497L38 25.889zM12 25.889L2 18.497V39.5C2 40.881 3.119 42 4.5 42H11c.552 0 1-.448 1-1V25.889z"></path>
                             </svg>
@@ -111,7 +151,7 @@
                             title="LinkedIn">
                             <svg
                                 viewBox="0 0 128 128"
-                                class="size-8 transition ease-in-out delay-150 hover:fill-sky-400 hover:scale-110 hover:-translate-y-1">
+                                class="size-8 transition-transform ease-in-out delay-150 dark:fill-gray-200 hover:fill-green-500 dark:hover:fill-green-400 hover:scale-110 hover:-translate-y-1">
                                 <path
                                     d="M116 3H12a8.91 8.91 0 00-9 8.8v104.42a8.91 8.91 0 009 8.78h104a8.93 8.93 0 009-8.81V11.77A8.93 8.93 0 00116 3zM39.17 107H21.06V48.73h18.11zm-9-66.21a10.5 10.5 0 1110.49-10.5 10.5 10.5 0 01-10.54 10.48zM107 107H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53V48.73h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75z"></path>
                             </svg>
@@ -122,7 +162,7 @@
                             title="GitHub">
                             <svg
                                 viewBox="0 0 128 128"
-                                class="size-8 transition ease-in-out delay-150 hover:fill-sky-400 hover:scale-110 hover:-translate-y-1">
+                                class="size-8 transition-transform ease-in-out delay-150 dark:fill-gray-200 hover:fill-green-500 dark:hover:fill-green-400 hover:scale-110 hover:-translate-y-1">
                                 <path
                                     fill-rule="evenodd"
                                     clip-rule="evenodd"
@@ -142,7 +182,7 @@
                                 width="32"
                                 height="32"
                                 viewBox="0 0 24 24"
-                                class="size-8 transition ease-in-out delay-150 hover:fill-sky-400 hover:scale-110 hover:-translate-y-1">
+                                class="size-8 transition-transform ease-in-out delay-150 dark:fill-gray-200 hover:fill-green-500 dark:hover:fill-green-400 hover:scale-110 hover:-translate-y-1">
                                 <path
                                     d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"></path>
                             </svg>
@@ -161,12 +201,12 @@
                     id="about">
                     About
                 </h2>
-                <p class="text-lg text-gray-600">
+                <p class="text-lg text-gray-600 dark:text-gray-400">
                     I'm a software engineer, currently working on backend
                     development in Go and working regularly with AWS. I also
                     have previous experience with frontend development in React.
                 </p>
-                <p class="text-lg text-gray-600">
+                <p class="text-lg text-gray-600 dark:text-gray-400">
                     I believe in lifelong learning, and I enjoy working with new
                     technologies and learning new skills to keep my knowledge
                     up-to-date. As a new software engineer, I practically learn
@@ -177,7 +217,7 @@
                     still have a lot to learn and I look forward to using the
                     skills I pick up to do meaningful and impactful work.
                 </p>
-                <p class="text-lg text-gray-600">
+                <p class="text-lg text-gray-600 dark:text-gray-400">
                     In my personal time, I like to make cool stuff with the
                     skills I've picked up. Other times, you'll usually find me
                     exercising, spending time with my fianc&eacute;e, or
@@ -185,7 +225,7 @@
                     <a
                         href="https://en.wikipedia.org/wiki/Kamuroch%C5%8D"
                         target="_blank"
-                        class="font-semibold hover:text-sky-600"
+                        class="font-semibold dark:font-bold hover:text-green-500 dark:hover:text-green-400"
                         >Kamurocho</a
                     >.
                 </p>
@@ -209,7 +249,8 @@
                                 href="https://autodesk.com"
                                 target="_blank"
                                 class="group">
-                                <span class="group-hover:text-sky-600"
+                                <span
+                                    class="group-hover:text-green-500 dark:group-hover:text-green-400"
                                     >Autodesk</span
                                 >
                                 <svg
@@ -219,14 +260,14 @@
                                     width="30"
                                     height="30"
                                     viewBox="0 0 30 30"
-                                    class="inline size-4 group-hover:fill-sky-600">
+                                    class="inline size-4 dark:fill-gray-200 group-hover:fill-green-500 dark:group-hover:fill-green-400">
                                     <path
                                         d="M 25.980469 2.9902344 A 1.0001 1.0001 0 0 0 25.869141 3 L 20 3 A 1.0001 1.0001 0 1 0 20 5 L 23.585938 5 L 13.292969 15.292969 A 1.0001 1.0001 0 1 0 14.707031 16.707031 L 25 6.4140625 L 25 10 A 1.0001 1.0001 0 1 0 27 10 L 27 4.1269531 A 1.0001 1.0001 0 0 0 25.980469 2.9902344 z M 6 7 C 4.9069372 7 4 7.9069372 4 9 L 4 24 C 4 25.093063 4.9069372 26 6 26 L 21 26 C 22.093063 26 23 25.093063 23 24 L 23 14 L 23 11.421875 L 21 13.421875 L 21 16 L 21 24 L 6 24 L 6 9 L 14 9 L 16 9 L 16.578125 9 L 18.578125 7 L 16 7 L 14 7 L 6 7 z"></path>
                                 </svg>
                             </a>
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
+                            class="list-disc list-outside pl-8 marker:text-green-500 dark:marker:text-green-400 text-base md:text-lg text-gray-600 dark:text-gray-400">
                             <li>
                                 Maintaining and developing the Identity
                                 Authorization Service, an OAuth 2.0 service,
@@ -256,7 +297,8 @@
                                 href="https://sc.com/en"
                                 target="_blank"
                                 class="group">
-                                <span class="group-hover:text-sky-600"
+                                <span
+                                    class="group-hover:text-green-500 dark:group-hover:text-green-400"
                                     >Standard Chartered Bank</span
                                 >
                                 <svg
@@ -266,14 +308,14 @@
                                     width="30"
                                     height="30"
                                     viewBox="0 0 30 30"
-                                    class="inline size-4 group-hover:fill-sky-600">
+                                    class="inline size-4 dark:fill-gray-200 group-hover:fill-green-500 dark:group-hover:fill-green-400">
                                     <path
                                         d="M 25.980469 2.9902344 A 1.0001 1.0001 0 0 0 25.869141 3 L 20 3 A 1.0001 1.0001 0 1 0 20 5 L 23.585938 5 L 13.292969 15.292969 A 1.0001 1.0001 0 1 0 14.707031 16.707031 L 25 6.4140625 L 25 10 A 1.0001 1.0001 0 1 0 27 10 L 27 4.1269531 A 1.0001 1.0001 0 0 0 25.980469 2.9902344 z M 6 7 C 4.9069372 7 4 7.9069372 4 9 L 4 24 C 4 25.093063 4.9069372 26 6 26 L 21 26 C 22.093063 26 23 25.093063 23 24 L 23 14 L 23 11.421875 L 21 13.421875 L 21 16 L 21 24 L 6 24 L 6 9 L 14 9 L 16 9 L 16.578125 9 L 18.578125 7 L 16 7 L 14 7 L 6 7 z"></path>
                                 </svg>
                             </a>
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
+                            class="list-disc list-outside pl-8 marker:text-green-500 dark:marker:text-green-400 text-base md:text-lg text-gray-600 dark:text-gray-400">
                             <li>
                                 Developed and maintained the online trading app
                                 using React and Redux.
@@ -296,7 +338,8 @@
                                 href="https://autodesk.com"
                                 target="_blank"
                                 class="group">
-                                <span class="group-hover:text-sky-600"
+                                <span
+                                    class="group-hover:text-green-500 dark:group-hover:text-green-400"
                                     >Autodesk</span
                                 >
                                 <svg
@@ -306,14 +349,14 @@
                                     width="30"
                                     height="30"
                                     viewBox="0 0 30 30"
-                                    class="inline size-4 group-hover:fill-sky-600">
+                                    class="inline size-4 dark:fill-gray-200 group-hover:fill-green-500 dark:group-hover:fill-green-400">
                                     <path
                                         d="M 25.980469 2.9902344 A 1.0001 1.0001 0 0 0 25.869141 3 L 20 3 A 1.0001 1.0001 0 1 0 20 5 L 23.585938 5 L 13.292969 15.292969 A 1.0001 1.0001 0 1 0 14.707031 16.707031 L 25 6.4140625 L 25 10 A 1.0001 1.0001 0 1 0 27 10 L 27 4.1269531 A 1.0001 1.0001 0 0 0 25.980469 2.9902344 z M 6 7 C 4.9069372 7 4 7.9069372 4 9 L 4 24 C 4 25.093063 4.9069372 26 6 26 L 21 26 C 22.093063 26 23 25.093063 23 24 L 23 14 L 23 11.421875 L 21 13.421875 L 21 16 L 21 24 L 6 24 L 6 9 L 14 9 L 16 9 L 16.578125 9 L 18.578125 7 L 16 7 L 14 7 L 6 7 z"></path>
                                 </svg>
                             </a>
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
+                            class="list-disc list-outside pl-8 marker:text-green-500 dark:marker:text-green-400 text-base md:text-lg text-gray-600 dark:text-gray-400">
                             <li>
                                 Automated testing and deployment of health
                                 checks to the internal health dashboard service
@@ -335,7 +378,7 @@
                         </ul>
                     </div>
                     <div
-                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500">
+                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500 dark:text-gray-400">
                         Dec 2021 - Feb 2022
                     </div>
                     <div class="lg:mb-0 lg:col-span-3">
@@ -346,7 +389,8 @@
                                 href="https://autodesk.com"
                                 target="_blank"
                                 class="group">
-                                <span class="group-hover:text-sky-600"
+                                <span
+                                    class="group-hover:text-green-500 dark:group-hover:text-green-400"
                                     >Centre for Strategic Infocomm Technologies
                                     (CSIT)</span
                                 >
@@ -357,14 +401,14 @@
                                     width="30"
                                     height="30"
                                     viewBox="0 0 30 30"
-                                    class="inline size-4 group-hover:fill-sky-600">
+                                    class="inline size-4 dark:fill-gray-200 group-hover:fill-green-500 dark:group-hover:fill-green-400">
                                     <path
                                         d="M 25.980469 2.9902344 A 1.0001 1.0001 0 0 0 25.869141 3 L 20 3 A 1.0001 1.0001 0 1 0 20 5 L 23.585938 5 L 13.292969 15.292969 A 1.0001 1.0001 0 1 0 14.707031 16.707031 L 25 6.4140625 L 25 10 A 1.0001 1.0001 0 1 0 27 10 L 27 4.1269531 A 1.0001 1.0001 0 0 0 25.980469 2.9902344 z M 6 7 C 4.9069372 7 4 7.9069372 4 9 L 4 24 C 4 25.093063 4.9069372 26 6 26 L 21 26 C 22.093063 26 23 25.093063 23 24 L 23 14 L 23 11.421875 L 21 13.421875 L 21 16 L 21 24 L 6 24 L 6 9 L 14 9 L 16 9 L 16.578125 9 L 18.578125 7 L 16 7 L 14 7 L 6 7 z"></path>
                                 </svg>
                             </a>
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
+                            class="list-disc list-outside pl-8 marker:text-green-500 dark:marker:text-green-400 text-base md:text-lg text-gray-600 dark:text-gray-400">
                             <li>
                                 Developed a proof of concept using C# and Python
                                 to demonstrate the viability of Elastic
@@ -388,7 +432,7 @@
                 </h2>
                 <div class="lg:grid lg:grid-cols-4 lg:gap-y-8">
                     <div
-                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500">
+                        class="lg:col-span-1 text-left text-lg font-semibold text-gray-500 dark:text-gray-400">
                         Aug 2019 - May 2023
                     </div>
                     <div class="lg:mb-0 lg:col-span-3">
@@ -397,7 +441,8 @@
                                 href="https://www.ntu.edu.sg/"
                                 target="_blank"
                                 class="group">
-                                <span class="group-hover:text-sky-600"
+                                <span
+                                    class="group-hover:text-green-500 dark:group-hover:text-green-400"
                                     >Nanyang Technological University</span
                                 >
                                 <svg
@@ -407,7 +452,7 @@
                                     width="30"
                                     height="30"
                                     viewBox="0 0 30 30"
-                                    class="inline size-4 group-hover:fill-sky-600">
+                                    class="inline size-4 dark:fill-gray-200 group-hover:fill-green-500 dark:group-hover:fill-green-400">
                                     <path
                                         d="M 25.980469 2.9902344 A 1.0001 1.0001 0 0 0 25.869141 3 L 20 3 A 1.0001 1.0001 0 1 0 20 5 L 23.585938 5 L 13.292969 15.292969 A 1.0001 1.0001 0 1 0 14.707031 16.707031 L 25 6.4140625 L 25 10 A 1.0001 1.0001 0 1 0 27 10 L 27 4.1269531 A 1.0001 1.0001 0 0 0 25.980469 2.9902344 z M 6 7 C 4.9069372 7 4 7.9069372 4 9 L 4 24 C 4 25.093063 4.9069372 26 6 26 L 21 26 C 22.093063 26 23 25.093063 23 24 L 23 14 L 23 11.421875 L 21 13.421875 L 21 16 L 21 24 L 6 24 L 6 9 L 14 9 L 16 9 L 16.578125 9 L 18.578125 7 L 16 7 L 14 7 L 6 7 z"></path>
                                 </svg>
@@ -418,7 +463,7 @@
                             of Engineering (Computer Science)
                         </h3>
                         <ul
-                            class="list-disc list-outside pl-8 marker:text-sky-400 text-base md:text-lg text-gray-600">
+                            class="list-disc list-outside pl-8 marker:text-green-500 dark:marker:text-green-400 text-base md:text-lg text-gray-600 dark:text-gray-400">
                             <li>
                                 GPA: 4.42/5.00 (Business), 4.61/5.00 (Computer
                                 Science)
@@ -438,7 +483,7 @@
                 <div
                     class="flex gap-4 select-none overflow-x-scroll lg:overflow-x-auto pb-6 snap-x snap-mandatory md:snap-none">
                     <div
-                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white shadow-sm snap-center">
+                        class="flex flex-col gap-8 border-gray-200 dark:border-gray-900 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white dark:bg-black shadow-sm snap-center">
                         <h3
                             class="text-lg md:text-xl font-semibold mb-0 md:mb-4 text-center">
                             Programming
@@ -505,7 +550,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white shadow-sm snap-center">
+                        class="flex flex-col gap-8 border-gray-200 dark:border-gray-900 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white dark:bg-black shadow-sm snap-center">
                         <h3
                             class="text-lg md:text-xl font-semibold mb-0 md:mb-4 text-center">
                             Tools
@@ -543,7 +588,7 @@
                         </div>
                     </div>
                     <div
-                        class="flex flex-col gap-8 border-gray-200 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white shadow-sm snap-center">
+                        class="flex flex-col gap-8 border-gray-200 dark:border-gray-900 rounded-2xl border-2 py-8 px-16 md:px-8 lg:px-12 bg-white dark:bg-black shadow-sm snap-center">
                         <h3
                             class="text-lg md:text-xl font-semibold mb-0 md:mb-4 text-center">
                             Cloud/Infra
@@ -577,26 +622,27 @@
         </div>
         <div
             class="px-7 md:px-14 lg:px-28 xl:px-52 py-4 mt-12 flex flex-col gap-8">
-            <hr />
-            <div class="text-sm sm:text-base text-center text-gray-500">
+            <hr class="dark:border-gray-900" />
+            <div
+                class="text-sm sm:text-base text-center text-gray-500 dark:text-gray-400">
                 Made with 💖 by Yow Lim. Built with
                 <a
                     href="https://tailwindcss.com/"
                     target="_blank"
-                    class="font-semibold hover:text-sky-600"
+                    class="font-semibold hover:text-green-500 dark:hover:text-green-400"
                     >Tailwind CSS</a
                 >, deployed on Amazon
                 <a
                     href="https://aws.amazon.com/s3/"
                     target="_blank"
-                    class="font-semibold hover:text-sky-600"
+                    class="font-semibold hover:text-green-500 dark:hover:text-green-400"
                     >S3</a
                 >
                 and
                 <a
                     href="https://aws.amazon.com/cloudfront/"
                     target="_blank"
-                    class="font-semibold hover:text-sky-600"
+                    class="font-semibold hover:text-green-500 dark:hover:text-green-400"
                     >CloudFront</a
                 >.
             </div>
