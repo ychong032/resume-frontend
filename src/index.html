@@ -5,6 +5,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Chong Yow Lim</title>
         <link rel="stylesheet" href="./output.css" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="icons/apple-touch-icon.png" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="icons/favicon-32x32.png" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="icons/favicon-16x16.png" />
+        <link rel="manifest" href="./site.webmanifest" />
         <script type="module" src="./index.js" defer></script>
         <script>
             document.documentElement.classList.toggle(
@@ -25,13 +40,37 @@
             class="sticky top-0 bg-gray-50 dark:bg-gray-950 border-b-2 border-b-gray-100 dark:border-b-gray-900 z-10">
             <nav
                 class="hidden md:flex xl:text-lg/6 font-semibold justify-between py-5 md:px-12 lg:px-20 xl:px-40">
-                <button
-                    type="button"
+                <svg
+                    id="light-mode-button-md"
+                    class="md:size-7 lg:size-8 stroke-2 opacity-80 fill-none hover:cursor-pointer hover:stroke-green-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v1" />
+                    <path d="M12 20v1" />
+                    <path d="M3 12h1" />
+                    <path d="M20 12h1" />
+                    <path d="m18.364 5.636-.707.707" />
+                    <path d="m6.343 17.657-.707.707" />
+                    <path d="m5.636 5.636.707.707" />
+                    <path d="m17.657 17.657.707.707" />
+                </svg>
+                <svg
                     id="dark-mode-button-md"
-                    class="rounded-md bg-green-500 active:bg-green-700">
-                    Toggle dark mode
-                </button>
-                <div class="flex md:gap-8 xl:gap-12">
+                    class="hidden md:size-7 lg:size-8 stroke-2 fill-none stroke-gray-200 hover:cursor-pointer hover:stroke-green-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="-4 -3 30 30"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9" />
+                    <path d="M20 3v4" />
+                    <path d="M22 5h-4" />
+                </svg>
+                <div class="flex md:gap-8 xl:gap-12 items-center">
                     <a
                         href="#about"
                         class="hover:text-green-500 dark:hover:text-green-400"
@@ -55,12 +94,36 @@
                 </div>
             </nav>
             <nav class="flex md:hidden justify-between py-4 px-4">
-                <button
-                    type="button"
+                <svg
+                    id="light-mode-button"
+                    class="size-8 stroke-2 opacity-80 fill-none hover:cursor-pointer hover:stroke-green-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v1" />
+                    <path d="M12 20v1" />
+                    <path d="M3 12h1" />
+                    <path d="M20 12h1" />
+                    <path d="m18.364 5.636-.707.707" />
+                    <path d="m6.343 17.657-.707.707" />
+                    <path d="m5.636 5.636.707.707" />
+                    <path d="m17.657 17.657.707.707" />
+                </svg>
+                <svg
                     id="dark-mode-button"
-                    class="rounded-md bg-green-500 active:bg-green-700">
-                    Toggle dark mode
-                </button>
+                    class="hidden size-8 stroke-2 opacity-80 fill-none hover:cursor-pointer hover:stroke-green-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="-4 -3 30 30"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9" />
+                    <path d="M20 3v4" />
+                    <path d="M22 5h-4" />
+                </svg>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"

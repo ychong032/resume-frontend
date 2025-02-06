@@ -5,19 +5,14 @@ const menu = document.getElementById("menu");
 const menuLinks = menu.children;
 const closeButton = document.getElementById("close-button");
 const modal = document.getElementById("modal");
+const lightModeButton = document.getElementById("light-mode-button");
+const lightModeButtonMd = document.getElementById("light-mode-button-md");
 const darkModeButton = document.getElementById("dark-mode-button");
 const darkModeButtonMd = document.getElementById("dark-mode-button-md");
 const htmlElement = document.documentElement;
 
-menuButton.addEventListener("click", toggleMenuDisplay);
-closeButton.addEventListener("click", toggleMenuDisplay);
-for (let link of menuLinks) {
-    link.addEventListener("click", toggleMenuDisplay);
-}
-modal.addEventListener("touchstart", toggleMenuDisplay);
-darkModeButton.addEventListener("click", toggleDarkMode);
-darkModeButtonMd.addEventListener("click", toggleDarkMode);
-
+initDarkModeButtons();
+initEventListeners();
 populateVisitorCount();
 
 async function populateVisitorCount() {
@@ -30,6 +25,43 @@ async function populateVisitorCount() {
     }
 }
 
+function initDarkModeButtons() {
+    lightModeButtonMd.classList.toggle(
+        "hidden",
+        localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+    );
+    darkModeButtonMd.classList.toggle(
+        "hidden",
+        !lightModeButtonMd.classList.contains("hidden")
+    );
+
+    lightModeButton.classList.toggle(
+        "hidden",
+        localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches)
+    );
+    darkModeButton.classList.toggle(
+        "hidden",
+        !lightModeButton.classList.contains("hidden")
+    );
+}
+
+function initEventListeners() {
+    menuButton.addEventListener("click", toggleMenuDisplay);
+    closeButton.addEventListener("click", toggleMenuDisplay);
+    for (let link of menuLinks) {
+        link.addEventListener("click", toggleMenuDisplay);
+    }
+    modal.addEventListener("touchstart", toggleMenuDisplay);
+    lightModeButton.addEventListener("click", toggleDarkMode);
+    lightModeButtonMd.addEventListener("click", toggleDarkMode);
+    darkModeButton.addEventListener("click", toggleDarkMode);
+    darkModeButtonMd.addEventListener("click", toggleDarkMode);
+}
+
 function toggleMenuDisplay() {
     menu.classList.toggle("hidden");
     menu.classList.toggle("grid");
@@ -39,21 +71,13 @@ function toggleMenuDisplay() {
 }
 
 function toggleDarkMode() {
-    if (localStorage.getItem("theme")) {
-        if (localStorage.getItem("theme") === "light") {
-            htmlElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            htmlElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    } else {
-        if (htmlElement.classList.contains("dark")) {
-            htmlElement.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        } else {
-            htmlElement.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        }
-    }
+    localStorage.setItem(
+        "theme",
+        htmlElement.classList.contains("dark") ? "light" : "dark"
+    );
+    htmlElement.classList.toggle("dark");
+    lightModeButtonMd.classList.toggle("hidden");
+    darkModeButtonMd.classList.toggle("hidden");
+    lightModeButton.classList.toggle("hidden");
+    darkModeButton.classList.toggle("hidden");
 }
